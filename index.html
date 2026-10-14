@@ -63,12 +63,11 @@
       {
         url: "https://marinados.neocities.org",
         banner: "https://raw.githubusercontent.com/marinamagimarquezini/marinados/main/marinados.gif"
-      }
-      ,{
-        url: "",
+      },
+      {
+        url: "https://marinados.neocities.org",
         banner: "https://raw.githubusercontent.com/marinamagimarquezini/marinados/main/scarycats.gif"
       }
-      */
     ];
 
     let currentIndex = 0;
@@ -90,12 +89,12 @@
         img.style.opacity = 1;
       }, 300);
     }
+
     if (members.length > 0) {
       document.getElementById("ad-link").href = members[0].url;
       document.getElementById("ad-img").src = members[0].banner;
     }
-
-    setInterval(trocarAnuncio, 15000);
+    setInterval(trocarAnuncio, 5000);
   </script>
 </body>
 </html>
