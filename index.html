@@ -24,6 +24,8 @@
       height: 100%;
       display: block;
       border: 0;
+      object-fit: fill;
+      transition: opacity 0.3s ease; 
     }
     .sidelink-tag {
       position: absolute;
@@ -59,20 +61,41 @@
   <script>
     const members = [
       {
-    url: "https://marinados.neocities.org",
-    banner: "https://raw.githubusercontent.com/marinamagimarquezini/marinados/main/marinados.gif"
-  },
-  {
-    url: "https://site-do-amigo.neocities.org",
-    banner: "https://raw.githubusercontent.com/marinamagimarquezini/marinados/main/scarycats.gif"
-  }
-];
+        url: "https://marinados.neocities.org",
+        banner: "https://raw.githubusercontent.com/marinamagimarquezini/marinados/main/marinados.gif"
+      }
+      ,{
+        url: "",
+        banner: "https://raw.githubusercontent.com/marinamagimarquezini/marinados/main/scarycats.gif"
+      }
+      */
+    ];
 
-    if (members.length > 0) {
-      const randomMember = members[Math.floor(Math.random() * members.length)];
-      document.getElementById("ad-link").href = randomMember.url;
-      document.getElementById("ad-img").src = randomMember.banner;
+    let currentIndex = 0;
+
+    function trocarAnuncio() {
+      if (members.length === 0) return;
+
+      const img = document.getElementById("ad-img");
+      const link = document.getElementById("ad-link");
+
+      img.style.opacity = 0;
+
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % members.length;
+        const currentMember = members[currentIndex];
+
+        link.href = currentMember.url;
+        img.src = currentMember.banner;
+        img.style.opacity = 1;
+      }, 300);
     }
+    if (members.length > 0) {
+      document.getElementById("ad-link").href = members[0].url;
+      document.getElementById("ad-img").src = members[0].banner;
+    }
+
+    setInterval(trocarAnuncio, 15000);
   </script>
 </body>
 </html>
