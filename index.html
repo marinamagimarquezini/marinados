@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarinaAds</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 159px;
+      height: 420px;
+      overflow: hidden;
+      background-color: #000;
+      font-family: sans-serif;
+      position: relative;
+    }
+    #ad-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    #ad-img {
+      width: 159px;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+    /* O selinho retangular clássico do SideLink/MarinaAds */
+    .sidelink-tag {
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      background: #d4d0c8;
+      color: #000;
+      font-size: 11px;
+      font-family: 'MS Gothic', Tahoma, sans-serif;
+      padding: 1px 4px;
+      border: 1px solid #808080;
+      border-radius: 2px;
+      text-decoration: none;
+      box-shadow: 1px 1px 0px #fff inset, 1px 1px 2px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+    .sidelink-tag:hover {
+      background: #ffffff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <a id="ad-link" href="#" target="_blank" rel="noopener">
+    <img id="ad-img" src="" alt="MarinaAds">
+  </a>
+
+  <!-- Link que leva para o seu repositório ou página principal do projeto -->
+  <a href="https://github.com/SEU-USUARIO/marinaads" class="sidelink-tag" target="_blank">
+    MarinaAds
+  </a>
+
+  <script>
+    // Lista de membros participantes do sistema
+    const members = [
+      {
+        url: "https://marinados.neocities.org",
+        banner: "https://marinados.neocities.org/banner_marinaads.png"
+      },
+      {
+        url: "https://site-do-amigo.neocities.org",
+        banner: "https://site-do-amigo.neocities.org/banner_159x420.png"
+      }
+    ];
+
+    // Sorteia um membro aleatório da lista
+    const randomMember = members[Math.floor(Math.random() * members.length)];
+
+    // Atualiza o link e a imagem na tela
+    document.getElementById("ad-link").href = randomMember.url;
+    document.getElementById("ad-img").src = randomMember.banner;
+  </script>
+</body>
+</html>
