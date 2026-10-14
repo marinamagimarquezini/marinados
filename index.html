@@ -29,7 +29,6 @@
       object-fit: cover;
       display: block;
     }
-    /* O selinho retangular clássico do SideLink/MarinaAds */
     .sidelink-tag {
       position: absolute;
       bottom: 4px;
@@ -57,20 +56,26 @@
     <img id="ad-img" src="" alt="MarinaAds">
   </a>
 
+  <a href="https://marinamagimarquezini.github.io/marinados/" class="sidelink-tag" target="_blank">
+    MarinaAds
+  </a>
+
   <script>
-    // Lista de membros participantes do sistema
     const members = [
       {
         url: "https://marinados.neocities.org",
         banner: "https://marinados.neocities.org/marinados.gif"
       }
+    ]; 
 
-    // Sorteia um membro aleatório da lista
-    const randomMember = members[Math.floor(Math.random() * members.length)];
+  
+    if (members.length > 0) {
+      const randomMember = members[Math.floor(Math.random() * members.length)];
 
-    // Atualiza o link e a imagem na tela
-    document.getElementById("ad-link").href = randomMember.url;
-    document.getElementById("ad-img").src = randomMember.banner;
+      // Atualiza o link e a imagem na tela
+      document.getElementById("ad-link").href = randomMember.url;
+      document.getElementById("ad-img").src = randomMember.banner;
+    }
   </script>
 </body>
 </html>
